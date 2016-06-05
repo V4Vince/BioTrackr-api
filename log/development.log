@@ -48,3 +48,1616 @@ WHERE c.contype = 'f'
 ORDER BY c.conname
 
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateRecords (20160604192511)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (26.9ms)[0m  [1mCREATE TABLE "records" ("id" serial primary key, "symptom" text, "date" date, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX  "index_records_on_user_id" ON "records"  ("user_id")
+  [1m[36m (2.9ms)[0m  [1mALTER TABLE "records" ADD CONSTRAINT "fk_rails_9ba3ba9afc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160604192511"]]
+  [1m[36m (6.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (6.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'examples'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'records'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'examples'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.6ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'records'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/records" for ::1 at 2016-06-04 15:29:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RecordsController#index as HTML
+  [1m[35mRecord Load (0.4ms)[0m  SELECT "records".* FROM "records"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (0.65ms)
+Completed 200 OK in 7ms (Views: 1.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for ::1 at 2016-06-04 15:29:43 -0400
+Processing by UsersController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 8ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'Vince@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (7.0ms)[0m  INSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "token") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "Vince@gmail.com"], ["password_digest", "$2a$10$YNf17mvr7hkKpVP5ulSoEu7TlFyxY2vTXrEgK.KAWCMsLgLAtpVf2"], ["created_at", "2016-06-04 19:39:01.645299"], ["updated_at", "2016-06-04 19:39:01.645299"], ["token", "7492901000b950c50e2b032bfff1ca65"]]
+  [1m[36m (12.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'Guo@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "token") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["email", "Guo@gmail.com"], ["password_digest", "$2a$10$1B8AYvYW4DXxmC0j0rxNQ.wtKubke.o6oLfp5MPzcfCdBF3C/bSa2"], ["created_at", "2016-06-04 19:39:01.733224"], ["updated_at", "2016-06-04 19:39:01.733224"], ["token", "10bbdadba0829b533c17d3eba2debbf3"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO "records" ("symptom", "date", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["symptom", "headache"], ["date", "2016-03-12"], ["user_id", 1], ["created_at", "2016-06-04 19:39:01.757338"], ["updated_at", "2016-06-04 19:39:01.757338"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "records" ("symptom", "date", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["symptom", "Stomach hurts"], ["date", "2016-06-01"], ["user_id", 1], ["created_at", "2016-06-04 19:39:01.772979"], ["updated_at", "2016-06-04 19:39:01.772979"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("symptom", "date", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["symptom", "feels weird"], ["date", "2016-05-12"], ["user_id", 2], ["created_at", "2016-06-04 19:39:01.782394"], ["updated_at", "2016-06-04 19:39:01.782394"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "records" ("symptom", "date", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["symptom", "tired"], ["date", "2016-01-01"], ["user_id", 2], ["created_at", "2016-06-04 19:39:01.785888"], ["updated_at", "2016-06-04 19:39:01.785888"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "records" ("symptom", "date", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["symptom", "foot went numb for 2 hhours"], ["date", "2016-03-01"], ["user_id", 1], ["created_at", "2016-06-04 20:10:03.206380"], ["updated_at", "2016-06-04 20:10:03.206380"]]
+  [1m[35m (12.1ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDescriptionColumnToRecords (20160604202906)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (6.3ms)[0m  [1mALTER TABLE "records" ADD "details" text[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160604202906"]]
+  [1m[36m (12.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (3.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'examples'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'records'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for ::1 at 2016-06-04 16:40:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.6ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 16:40:42 -0400
+Processing by RecordsController#index as HTML
+  [1m[35mRecord Load (0.7ms)[0m  SELECT "records".* FROM "records"
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+[active_model_serializers]   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+[active_model_serializers]   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (33.51ms)
+Completed 200 OK in 52ms (Views: 44.4ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/records/1" for ::1 at 2016-06-04 16:41:42 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecord Load (0.2ms)[0m  SELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1  [["id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+[active_model_serializers] Rendered RecordSerializer with ActiveModel::Serializer::Adapter::Json (1.73ms)
+Completed 200 OK in 11ms (Views: 1.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-04 16:43:30 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Vince@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "Vince@gmail.com"]]
+  [1m[36mSQL (12.2ms)[0m  [1mUPDATE "users" SET "token" = '949f3756f7f54d5959ab7ba36295e32f', "updated_at" = '2016-06-04 20:43:30.346227' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (3.47ms)
+Completed 200 OK in 89ms (Views: 3.9ms | ActiveRecord: 12.4ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 16:45:27 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: record):
+  app/controllers/records_controller.rb:57:in `record_params'
+  app/controllers/records_controller.rb:21:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.8ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 16:51:02 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:21:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 16:51:38 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:21:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (44.4ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 16:52:54 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `record' for nil:NilClass):
+  app/controllers/records_controller.rb:21:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.5ms)
+
+
+Started GET "/examples" for ::1 at 2016-06-04 16:54:19 -0400
+Processing by ExamplesController#index as HTML
+  [1m[35mExample Load (7.6ms)[0m  SELECT "examples".* FROM "examples"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (1.32ms)
+Completed 200 OK in 18ms (Views: 3.9ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/examples" for ::1 at 2016-06-04 16:54:19 -0400
+Processing by ExamplesController#index as HTML
+  [1m[36mExample Load (0.7ms)[0m  [1mSELECT "examples".* FROM "examples"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (0.24ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'examples'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'records'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started POST "/records" for ::1 at 2016-06-04 16:55:33 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:21:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.7ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 16:56:10 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:21:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.9ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 16:56:48 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `record' for nil:NilClass):
+  app/controllers/records_controller.rb:21:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.8ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 16:57:06 -0400
+Processing by RecordsController#index as HTML
+  [1m[35mRecord Load (0.3ms)[0m  SELECT "records".* FROM "records"
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+[active_model_serializers]   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+[active_model_serializers]   [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (20.67ms)
+Completed 200 OK in 31ms (Views: 23.7ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 17:01:50 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:21:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.8ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:04:30 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.5ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:05:44 -0400
+Processing by RecordsController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-04 17:06:07 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"an@example.email", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "an@example.email"]]
+Completed 401 Unauthorized in 17ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:06:53 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.7ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-04 17:08:11 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Vince@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "Vince@gmail.com"]]
+  [1m[35mSQL (6.4ms)[0m  UPDATE "users" SET "token" = '63f1e6f344434f7778db0a447bf7d266', "updated_at" = '2016-06-04 21:08:11.423865' WHERE "users"."id" = $1  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (0.53ms)
+Completed 200 OK in 91ms (Views: 1.1ms | ActiveRecord: 9.6ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-04 17:08:26 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Vince@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "Vince@gmail.com"]]
+  [1m[35mSQL (11.7ms)[0m  UPDATE "users" SET "token" = 'ad7e00f182d8e14c54cbefca8eeec784', "updated_at" = '2016-06-04 21:08:27.015295' WHERE "users"."id" = $1  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (0.49ms)
+Completed 200 OK in 93ms (Views: 0.8ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:08:30 -0400
+Processing by RecordsController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-04 17:08:40 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Vince@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "Vince@gmail.com"]]
+  [1m[35mSQL (6.4ms)[0m  UPDATE "users" SET "token" = '3b5ceaf5eefdc1f9a528d766321e8357', "updated_at" = '2016-06-04 21:08:40.679244' WHERE "users"."id" = $1  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (0.3ms)
+Completed 200 OK in 79ms (Views: 1.0ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:08:48 -0400
+Processing by RecordsController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2016-06-04 17:09:00 -0400
+Processing by UsersController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2016-06-04 17:09:23 -0400
+Processing by UsersController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:09:26 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (42.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mRecord Load (0.4ms)[0m  SELECT "records".* FROM "records" WHERE "records"."user_id" = $1  [["user_id", 1]]
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:13:33 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (41.8ms)
+
+
+Started GET "/examples" for ::1 at 2016-06-04 17:23:48 -0400
+Processing by ExamplesController#index as HTML
+  [1m[36mExample Load (0.3ms)[0m  [1mSELECT "examples".* FROM "examples"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (0.38ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/example" for ::1 at 2016-06-04 17:23:52 -0400
+
+ActionController::RoutingError (No route matches [GET] "/example"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (68.9ms)
+
+
+Started GET "/example/1" for ::1 at 2016-06-04 17:24:03 -0400
+
+ActionController::RoutingError (No route matches [GET] "/example/1"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (58.5ms)
+
+
+Started GET "/examples/1" for ::1 at 2016-06-04 17:24:08 -0400
+Processing by ExamplesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mExample Load (0.3ms)[0m  SELECT  "examples".* FROM "examples" WHERE "examples"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 404 Not Found in 4ms (Views: 1.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/examples" for ::1 at 2016-06-04 17:25:09 -0400
+Processing by ExamplesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `examples' for nil:NilClass):
+  app/controllers/examples_controller.rb:8:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.5ms)
+
+
+Started GET "/examples" for ::1 at 2016-06-04 17:25:09 -0400
+Processing by ExamplesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `examples' for nil:NilClass):
+  app/controllers/examples_controller.rb:8:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (39.7ms)
+
+
+Started GET "/examples" for ::1 at 2016-06-04 17:25:26 -0400
+Processing by ExamplesController#index as HTML
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/examples" for ::1 at 2016-06-04 17:25:41 -0400
+Processing by ExamplesController#index as HTML
+  [1m[36mExample Load (0.2ms)[0m  [1mSELECT "examples".* FROM "examples"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (0.34ms)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/examples" for ::1 at 2016-06-04 17:25:50 -0400
+Processing by ExamplesController#index as HTML
+  [1m[35mExample Load (0.3ms)[0m  SELECT "examples".* FROM "examples"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (0.4ms)
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:25:53 -0400
+Processing by RecordsController#index as HTML
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:26:03 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.5ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:26:19 -0400
+Processing by RecordsController#index as HTML
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: record):
+  app/controllers/records_controller.rb:59:in `record_params'
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.2ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:27:15 -0400
+Processing by RecordsController#index as HTML
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: record):
+  app/controllers/records_controller.rb:59:in `record_params'
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (42.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:27:32 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.7ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 17:40:53 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (41.4ms)
+
+
+Started GET "/records/1" for ::1 at 2016-06-04 19:06:20 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRecord Load (0.3ms)[0m  [1mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1[0m  [["id", 1]]
+[active_model_serializers] Rendered RecordSerializer with ActiveModel::Serializer::Adapter::Json (1.13ms)
+Completed 200 OK in 18ms (Views: 3.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 19:07:59 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `email' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 19:07:59 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `email' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (41.3ms)
+
+
+Started GET "/stories" for ::1 at 2016-06-04 19:39:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/stories"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (10.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (6.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (85.8ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 19:39:29 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (40.9ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 20:07:15 -0400
+Processing by RecordsController#index as HTML
+  [1m[35mRecord Load (22.4ms)[0m  SELECT "records".* FROM "records"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (2.07ms)
+Completed 200 OK in 55ms (Views: 16.7ms | ActiveRecord: 27.7ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 20:09:30 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (43.8ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 22:23:03 -0400
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.6ms)[0m  [1mSELECT "records".* FROM "records"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (1.75ms)
+Completed 200 OK in 37ms (Views: 18.0ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/records/1" for ::1 at 2016-06-04 22:23:08 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecord Load (0.4ms)[0m  SELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+[active_model_serializers] Rendered RecordSerializer with ActiveModel::Serializer::Adapter::Json (0.24ms)
+Completed 200 OK in 34ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/records/4" for ::1 at 2016-06-04 22:23:12 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mRecord Load (0.4ms)[0m  SELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1[0m  [["id", "4"]]
+[active_model_serializers] Rendered RecordSerializer with ActiveModel::Serializer::Adapter::Json (0.56ms)
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:23:49 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:22:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.8ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:25:01 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: record):
+  app/controllers/records_controller.rb:59:in `record_params'
+  app/controllers/records_controller.rb:22:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (47.8ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:27:56 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: record):
+  app/controllers/records_controller.rb:59:in `record_params'
+  app/controllers/records_controller.rb:22:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.9ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:27:58 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: record):
+  app/controllers/records_controller.rb:59:in `record_params'
+  app/controllers/records_controller.rb:22:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (45.4ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-04 22:38:57 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Vince@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (1.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "Vince@gmail.com"]]
+  [1m[36mSQL (22.6ms)[0m  [1mUPDATE "users" SET "token" = '4a89180304a4ea54ea0d52633597f059', "updated_at" = '2016-06-05 02:38:57.953435' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (3.29ms)
+Completed 200 OK in 151ms (Views: 3.6ms | ActiveRecord: 27.1ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:40:06 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: record):
+  app/controllers/records_controller.rb:59:in `record_params'
+  app/controllers/records_controller.rb:22:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.4ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:43:06 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: record):
+  app/controllers/records_controller.rb:59:in `record_params'
+  app/controllers/records_controller.rb:22:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:43:35 -0400
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "records": {
+      "symptom": "hand is numb",
+      "date": "2016-01-02",
+    }
+  }
+
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at '{
+    "records": {
+      "symptom": "hand is numb",
+      "date": "2016-01-02",
+    }
+  }'):
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (38.8ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:45:19 -0400
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "records": {
+      "symptom": "hand is numb",
+      "date": "2016-01-02",
+      "user_id": "1"
+      "details": "my hand went numb and it hurts"
+    }
+  }
+
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at '{
+    "records": {
+      "symptom": "hand is numb",
+      "date": "2016-01-02",
+      "user_id": "1"
+      "details": "my hand went numb and it hurts"
+    }
+  }'):
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:53:in `rescue in parse_formatted_parameters'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:32:in `parse_formatted_parameters'
+  actionpack (4.2.6) lib/action_dispatch/middleware/params_parser.rb:23:in `call'
+  activerecord (4.2.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.6) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/var/rbenv/versions/2.3.0/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (38.6ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:45:43 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"records"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms)
+
+ActionController::ParameterMissing (param is missing or the value is empty: record):
+  app/controllers/records_controller.rb:59:in `record_params'
+  app/controllers/records_controller.rb:22:in `create'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.3ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.3ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:46:13 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (22.9ms)[0m  [1mINSERT INTO "records" ("symptom", "date", "user_id", "details", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symptom", "hand is numb"], ["date", "2016-01-02"], ["user_id", 1], ["details", "my hand went numb and it hurts"], ["created_at", "2016-06-05 02:46:13.103233"], ["updated_at", "2016-06-05 02:46:13.103233"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+[active_model_serializers] Rendered RecordSerializer with ActiveModel::Serializer::Adapter::Json (0.48ms)
+Completed 201 Created in 37ms (Views: 2.5ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-04 22:46:34 -0400
+Processing by RecordsController#index as HTML
+  [1m[36mRecord Load (0.3ms)[0m  [1mSELECT "records".* FROM "records"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (1.5ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 22:59:57 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-04 23:00:45 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (44.1ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-04 23:01:30 -0400
+Processing by RecordsController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 23:02:19 -0400
+Processing by RecordsController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-04 23:02:48 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Vince@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "Vince@gmail.com"]]
+  [1m[36mSQL (6.5ms)[0m  [1mUPDATE "users" SET "token" = 'ba6f7dd318a6b6994701c96d6c175944', "updated_at" = '2016-06-05 03:02:48.300388' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (0.68ms)
+Completed 200 OK in 98ms (Views: 1.2ms | ActiveRecord: 15.7ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-04 23:02:51 -0400
+Processing by RecordsController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 23:07:17 -0400
+Processing by RecordsController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-04 23:07:32 -0400
+Processing by RecordsController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 23:07:58 -0400
+Processing by RecordsController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 23:08:54 -0400
+Processing by RecordsController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 23:08:55 -0400
+Processing by RecordsController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 23:09:49 -0400
+Processing by RecordsController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 23:10:11 -0400
+Processing by RecordsController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-04 23:11:07 -0400
+Processing by RecordsController#index as */*
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 23:11:29 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-04 23:11:50 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Vince@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "Vince@gmail.com"]]
+  [1m[36mSQL (6.0ms)[0m  [1mUPDATE "users" SET "token" = '6aafebc15b61407ed9d6039e1f99ac8d', "updated_at" = '2016-06-05 03:11:50.609712' WHERE "users"."id" = $1[0m  [["id", 1]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (0.19ms)
+Completed 200 OK in 77ms (Views: 0.6ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 23:12:03 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"2", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 23:15:20 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"2", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 3ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 23:16:33 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"2", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 23:17:21 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-04 23:18:09 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Guo@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "Guo@gmail.com"]]
+  [1m[36mSQL (6.6ms)[0m  [1mUPDATE "users" SET "token" = 'e0eb3fd040b352720ecdde156cf010f4', "updated_at" = '2016-06-05 03:18:09.843410' WHERE "users"."id" = $1[0m  [["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (0.43ms)
+Completed 200 OK in 90ms (Views: 0.8ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 23:18:27 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-04 23:18:37 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"2", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-05 11:58:44 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Guo@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (1.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "Guo@gmail.com"]]
+  [1m[36mSQL (13.3ms)[0m  [1mUPDATE "users" SET "token" = 'c8ad00a18bbeab63c4d7bde2747d77df', "updated_at" = '2016-06-05 15:58:44.547159' WHERE "users"."id" = $1[0m  [["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (2.2ms)
+Completed 200 OK in 194ms (Views: 3.1ms | ActiveRecord: 79.5ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 11:58:59 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"2", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-05 12:42:42 -0400
+Processing by RecordsController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records" for ::1 at 2016-06-05 12:42:50 -0400
+Processing by RecordsController#index as HTML
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records/1" for ::1 at 2016-06-05 12:42:53 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-05 12:42:58 -0400
+Processing by RecordsController#index as HTML
+  Rendered text template (0.1ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-05 13:00:25 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (51.2ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-05 13:00:52 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Guo@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "Guo@gmail.com"]]
+  [1m[36mSQL (1.5ms)[0m  [1mUPDATE "users" SET "token" = '7c52f9ae27c64e6f650ef0e3651489fd', "updated_at" = '2016-06-05 17:00:52.816915' WHERE "users"."id" = $1[0m  [["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (0.64ms)
+Completed 200 OK in 103ms (Views: 1.2ms | ActiveRecord: 20.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 13:01:02 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"2", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-05 13:01:39 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `records' for nil:NilClass):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (50.4ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-05 13:02:11 -0400
+Processing by RecordsController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant RecordsController::Show):
+  app/controllers/records_controller.rb:7:in `index'
+
+
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /usr/local/var/rbenv/versions/2.3.0/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.3ms)
+
+
+Started GET "/records/" for ::1 at 2016-06-05 13:02:23 -0400
+Processing by RecordsController#index as HTML
+  [1m[35mRecord Load (0.3ms)[0m  SELECT "records".* FROM "records"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (4.62ms)
+Completed 200 OK in 41ms (Views: 13.1ms | ActiveRecord: 25.5ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 13:49:26 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"2", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 62ms (Views: 57.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 13:49:32 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"2", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 13:49:42 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-05 13:49:52 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Guo@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1[0m  [["email", "Guo@gmail.com"]]
+  [1m[35mSQL (11.4ms)[0m  UPDATE "users" SET "token" = 'b7da10e9761f56f7b5f8fd71877bbdb6', "updated_at" = '2016-06-05 17:49:52.353317' WHERE "users"."id" = $1  [["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (0.82ms)
+Completed 200 OK in 126ms (Views: 1.6ms | ActiveRecord: 20.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 13:50:04 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 13:50:15 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 13:50:43 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 13:50:55 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"2", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-05 13:52:29 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (7.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Guo@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "Guo@gmail.com"]]
+  [1m[36mSQL (5.8ms)[0m  [1mUPDATE "users" SET "token" = 'a9c66d4d6dd86fdb68803b32a2f96374', "updated_at" = '2016-06-05 17:52:30.237015' WHERE "users"."id" = $1[0m  [["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (3.3ms)
+Completed 200 OK in 122ms (Views: 3.8ms | ActiveRecord: 27.3ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 13:52:38 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"2", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 13:52:51 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "user_id"=>"1", "details"=>"my hand went numb and it hurts"}}
+  Rendered text template (0.0ms)
+Filter chain halted as :authenticate rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sign-in" for ::1 at 2016-06-05 14:02:23 -0400
+Processing by UsersController#signin as */*
+  Parameters: {"credentials"=>{"email"=>"Guo@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT 1  [["email", "Guo@gmail.com"]]
+  [1m[36mSQL (11.3ms)[0m  [1mUPDATE "users" SET "token" = 'f450b98aee2a208be8fdd9114bbc5773', "updated_at" = '2016-06-05 18:02:23.827356' WHERE "users"."id" = $1[0m  [["id", 2]]
+[active_model_serializers] Rendered UserLoginSerializer with ActiveModel::Serializer::Adapter::Json (0.46ms)
+Completed 200 OK in 98ms (Views: 0.8ms | ActiveRecord: 14.2ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 14:04:07 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"hand is numb", "date"=>"2016-01-02", "details"=>"my hand went numb and it hurts"}}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1  [["token", "f450b98aee2a208be8fdd9114bbc5773"]]
+  [1m[36m (11.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (52.5ms)[0m  INSERT INTO "records" ("symptom", "date", "details", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["symptom", "hand is numb"], ["date", "2016-01-02"], ["details", "my hand went numb and it hurts"], ["created_at", "2016-06-05 18:04:07.442015"], ["updated_at", "2016-06-05 18:04:07.442015"]]
+  [1m[36m (4.8ms)[0m  [1mCOMMIT[0m
+[active_model_serializers] Rendered RecordSerializer with ActiveModel::Serializer::Adapter::Json (0.56ms)
+Completed 201 Created in 119ms (Views: 6.0ms | ActiveRecord: 77.3ms)
+
+
+Started GET "/records/1" for ::1 at 2016-06-05 15:12:18 -0400
+Processing by RecordsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRecord Load (30.7ms)[0m  SELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+[active_model_serializers] Rendered RecordSerializer with ActiveModel::Serializer::Adapter::Json (2.64ms)
+Completed 200 OK in 77ms (Views: 6.4ms | ActiveRecord: 30.7ms)
+
+
+Started GET "/records" for ::1 at 2016-06-05 15:12:35 -0400
+Processing by RecordsController#index as HTML
+  [1m[35mRecord Load (17.7ms)[0m  SELECT "records".* FROM "records"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (3.98ms)
+Completed 200 OK in 26ms (Views: 8.0ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/records?user_id=1" for ::1 at 2016-06-05 15:12:53 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecord Load (0.3ms)[0m  [1mSELECT "records".* FROM "records"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (1.94ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/records?user_id=2" for ::1 at 2016-06-05 15:13:03 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"2"}
+  [1m[35mRecord Load (0.6ms)[0m  SELECT "records".* FROM "records"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (1.76ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/records?user_id=1" for ::1 at 2016-06-05 15:13:11 -0400
+Processing by RecordsController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mRecord Load (0.3ms)[0m  [1mSELECT "records".* FROM "records"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (1.23ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/records" for ::1 at 2016-06-05 15:13:16 -0400
+Processing by RecordsController#index as HTML
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records"
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModel::Serializer::Adapter::Json (2.82ms)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/records" for ::1 at 2016-06-05 15:17:33 -0400
+Processing by RecordsController#create as */*
+  Parameters: {"record"=>{"symptom"=>"felt dizzy", "date"=>"2016-01-02", "details"=>"felt really dizzy in the morning"}}
+  [1m[36mUser Load (12.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1[0m  [["token", "f450b98aee2a208be8fdd9114bbc5773"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (61.1ms)[0m  [1mINSERT INTO "records" ("symptom", "date", "details", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["symptom", "felt dizzy"], ["date", "2016-01-02"], ["details", "felt really dizzy in the morning"], ["user_id", 2], ["created_at", "2016-06-05 19:17:33.283182"], ["updated_at", "2016-06-05 19:17:33.283182"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+[active_model_serializers] Rendered RecordSerializer with ActiveModel::Serializer::Adapter::Json (0.9ms)
+Completed 201 Created in 151ms (Views: 4.5ms | ActiveRecord: 106.0ms)
+
+
+Started PATCH "/records/2" for ::1 at 2016-06-05 15:27:24 -0400
+Processing by RecordsController#update as */*
+  Parameters: {"record"=>{"details"=>"My updated details"}, "id"=>"2"}
+  [1m[36mUser Load (23.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1[0m  [["token", "f450b98aee2a208be8fdd9114bbc5773"]]
+  [1m[35mRecord Load (0.5ms)[0m  SELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "records" SET "details" = $1, "updated_at" = $2 WHERE "records"."id" = $3[0m  [["details", "My updated details"], ["updated_at", "2016-06-05 19:27:24.435410"], ["id", 2]]
+  [1m[35m (6.3ms)[0m  COMMIT
+Completed 204 No Content in 89ms (ActiveRecord: 30.7ms)
+
+
+Started DELETE "/records/2" for ::1 at 2016-06-05 15:29:11 -0400
+Processing by RecordsController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1[0m  [["token", "f450b98aee2a208be8fdd9114bbc5773"]]
+  [1m[35mRecord Load (0.2ms)[0m  SELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "records" WHERE "records"."id" = $1  [["id", 2]]
+  [1m[36m (5.6ms)[0m  [1mCOMMIT[0m
+Completed 204 No Content in 24ms (ActiveRecord: 6.5ms)
+
+
+
+
+
+
+
+
+Started GET "/records/1" for ::1 at 2016-06-05 15:31:03 -0400
+Processing by RecordsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (27.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."token" = $1 LIMIT 1  [["token", "f450b98aee2a208be8fdd9114bbc5773"]]
+  [1m[36mRecord Load (0.2ms)[0m  [1mSELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "records".* FROM "records" WHERE "records"."id" = $1 LIMIT 1  [["id", "1"]]
+[active_model_serializers] Rendered RecordSerializer with ActiveModel::Serializer::Adapter::Json (1.95ms)
+Completed 200 OK in 40ms (Views: 6.3ms | ActiveRecord: 27.3ms)
