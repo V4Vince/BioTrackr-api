@@ -1,10 +1,10 @@
-class RecordsController < OpenReadController
+class RecordsController < ProtectedController
   before_action :set_record, only: [:show, :update, :destroy]
 
   # GET /records
   # GET /records.json
   def index
-    @records = Record.all
+    @records = current_user.records.all
     # @records = Record.all
 
     render json: @records
