@@ -1,4 +1,4 @@
-# BioTrackr Ember Client
+# BioTrackr API
 An API to store let users store keep a detailed log of their health. It allow users to register with email and password as well as store records that they create.
 
 API currently does not support admin privileges. All data created by the user are only accessible by the user. 
