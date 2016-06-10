@@ -420,3 +420,9 @@ If the request is successful, the response will have an HTTP Status of 200 OK,
 
 If the request is unsuccessful, the response will have an HTTP Status of 400 Bad
  Request, and the response body will be JSON describing the errors.
+ 
+ 
+##Resources
+
+- Ember Front-end repo https://github.com/V4Vince/BioTrackr-client
+- Live App https://v4vince.github.io/BioTrackr-client/
